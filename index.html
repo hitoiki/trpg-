@@ -15,38 +15,43 @@
     kamingu suun...
     <br>
     <h1>suteetasu</h1>
-    <form name="js">
-      <table class="statusboard">
-        <thead>
-          <tr>
-            <th></th>
-            <th>Str</th>
-            <th>Con</th>
-            <th>Pow</th>
-            <th>Dex</th>
-            <th>App</th>
-            <th>Siz</th>
-            <th>Int</th>
-            <th>Edu</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <th>能力値</th>
-            <td><input class="statusNum" type="text" id="str" value="1"></td>
-            <td><input class="statusNum" type="text" id="con" value="1"></td>
-            <td><input class="statusNum" type="text" id="pow" value="1"></td>
-            <td><input class="statusNum" type="text" id="dex" value="1"></td>
-            <td><input class="statusNum" type="text" id="app" value="1"></td>
-            <td><input class="statusNum" type="text" id="siz" value="1"></td>
-            <td><input class="statusNum" type="text" id="interi" value="1"></td>
-            <td><input class="statusNum" type="text" id="edu" value="1"></td>
-          </tr>
-        </tbody>
-      </table>
-      <br>
-      <input type="button" name="dice" value="dice" onclick="test()">
-    </form>
+
+    <h3>namae</h3>
+    <input type="text" id="name" value="プロトタイプ祐介"></input>
+
+    <h3>memo</h3>
+    <textarea id="memo">キャラ設定などをこちらに</textarea>
+
+    <table class="statusboard">
+      <thead>
+        <tr>
+          <th></th>
+          <th>Str</th>
+          <th>Con</th>
+          <th>Pow</th>
+          <th>Dex</th>
+          <th>App</th>
+          <th>Siz</th>
+          <th>Int</th>
+          <th>Edu</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th>能力値</th>
+          <td><input class="statusNum" type="text" id="str" value="1"></td>
+          <td><input class="statusNum" type="text" id="con" value="1"></td>
+          <td><input class="statusNum" type="text" id="pow" value="1"></td>
+          <td><input class="statusNum" type="text" id="dex" value="1"></td>
+          <td><input class="statusNum" type="text" id="app" value="1"></td>
+          <td><input class="statusNum" type="text" id="siz" value="1"></td>
+          <td><input class="statusNum" type="text" id="interi" value="1"></td>
+          <td><input class="statusNum" type="text" id="edu" value="1"></td>
+        </tr>
+      </tbody>
+    </table>
+    <br>
+    <input type="button" name="dice" value="dice" onclick="test()">
   </main>
   <script>
     console.log('GitHub Pages Sample');

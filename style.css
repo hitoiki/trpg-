@@ -1,4 +1,4 @@
-input[type="text"],
+input[class="statusNum"][type="text"],
 textarea {
     padding: 0.8em;
     outline: none;
@@ -8,4 +8,26 @@ textarea {
     border-radius: 3px;
     font-size: 16px;
     width: 50px;
+}
+
+textarea[id="memo"]{
+    border: 1px solid #DDD;
+    overflow: hidden; 
+    overflow-wrap: break-word; 
+    resize: horizontal; 
+    width: 300px; 
+    height: 120px;
+}
+
+input[id="name"][type="text"],
+textarea{
+    padding: 0.8em;
+    outline: none;
+    border: 1px solid #000000;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    font-size: 16px;
+    width: 200px;
+    height: 30px;
 }
