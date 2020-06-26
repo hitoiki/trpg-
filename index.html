@@ -1,21 +1,56 @@
-  
 <!DOCTYPE html>
 <html>
+
 <head>
-<meta charset="UTF-8">
-<title>TipsNote : GitHub Pages Sample</title>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/marx/2.0.4/marx.css">
+  <meta charset="UTF-8">
+  <title>TrpgCharaMaker</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="writer.js"></script>
 </head>
 
 <body>
-<main>
-  <h1>trpgのキャラシを作る（予定）</h1>
-  あと自作botに対応できるようにする
-  kamingu suun...
-</main>
-
-<script>
-console.log('GitHub Pages Sample');
-</script>
+  <main>
+    <h1>trpgのキャラシを作る（予定）</h1>
+    あと自作botに対応できるようにする
+    kamingu suun...
+    <br>
+    <h1>suteetasu</h1>
+    <form name="js">
+      <table class="statusboard">
+        <thead>
+          <tr>
+            <th></th>
+            <th>Str</th>
+            <th>Con</th>
+            <th>Pow</th>
+            <th>Dex</th>
+            <th>App</th>
+            <th>Siz</th>
+            <th>Int</th>
+            <th>Edu</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th>能力値</th>
+            <td><input class="statusNum" type="text" id="str" value="1"></td>
+            <td><input class="statusNum" type="text" id="con" value="1"></td>
+            <td><input class="statusNum" type="text" id="pow" value="1"></td>
+            <td><input class="statusNum" type="text" id="dex" value="1"></td>
+            <td><input class="statusNum" type="text" id="app" value="1"></td>
+            <td><input class="statusNum" type="text" id="siz" value="1"></td>
+            <td><input class="statusNum" type="text" id="interi" value="1"></td>
+            <td><input class="statusNum" type="text" id="edu" value="1"></td>
+          </tr>
+        </tbody>
+      </table>
+      <br>
+      <input type="button" name="dice" value="dice" onclick="test()">
+    </form>
+  </main>
+  <script>
+    console.log('GitHub Pages Sample');
+  </script>
 </body>
+
 </html>
