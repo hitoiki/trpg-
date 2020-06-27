@@ -1,5 +1,19 @@
-input[class="statusNum"][type="text"],
-textarea {
+input[type=text],textarea {
+    padding: 0.8em;
+    outline: none;
+    border: 1px solid #DDD;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    font-size: 16px;
+}
+
+table {
+    border: 1px solid #CCC;
+}
+
+.statusNum[type="text"]
+{
     padding: 0.8em;
     outline: none;
     border: 1px solid #DDD;
@@ -10,24 +24,32 @@ textarea {
     width: 50px;
 }
 
-textarea[id="memo"]{
-    border: 1px solid #DDD;
+#memo{
+    border: 1px solid #777777;
     overflow: hidden; 
     overflow-wrap: break-word; 
     resize: horizontal; 
     width: 300px; 
-    height: 120px;
+    height: 100px;
 }
 
-input[id="name"][type="text"],
-textarea{
+#name{
     padding: 0.8em;
     outline: none;
-    border: 1px solid #000000;
+    border: 1px solid #777777;
     -webkit-border-radius: 3px;
     -moz-border-radius: 3px;
     border-radius: 3px;
     font-size: 16px;
     width: 200px;
     height: 30px;
+}
+
+.skillText[type=text]{
+    border: 1px solid #CCC;
+    width: 150px;
+}
+.skillNum[type=text]{
+    border: 1px solid #CCC;
+    width: 70px;
 }

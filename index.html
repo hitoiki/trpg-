@@ -5,6 +5,7 @@
   <meta charset="UTF-8">
   <title>TrpgCharaMaker</title>
   <link rel="stylesheet" href="style.css">
+  <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
   <script src="writer.js"></script>
 </head>
 
@@ -15,12 +16,15 @@
     kamingu suun...
     <br>
     <h1>suteetasu</h1>
-
-    <h3>namae</h3>
+    <textarea id="encode" hidden>ここにエンコードを入れたい</textarea>
+    namae
+    <br>
     <input type="text" id="name" value="プロトタイプ祐介"></input>
-
-    <h3>memo</h3>
+    <br>
+    memo
+    <br>
     <textarea id="memo">キャラ設定などをこちらに</textarea>
+
 
     <table class="statusboard">
       <thead>
@@ -51,7 +55,16 @@
       </tbody>
     </table>
     <br>
-    <input type="button" name="dice" value="dice" onclick="test()">
+    <input type="button" name="dice" value="dice" onclick="roll()">
+    <br>
+    <input type="button" name="dice" value="add" onclick="addSkillTable()">
+    <table id="skillTable">
+      <tr>
+        <td><input class="skillText" type="text" value="技能"></td>
+        <td><input class="skillNum" type="text" value="50"></td>
+      </tr>
+    </table>
+
   </main>
   <script>
     console.log('GitHub Pages Sample');
