@@ -26,7 +26,7 @@
     <textarea id="memo">キャラ設定などをこちらに</textarea>
 
 
-    <table class="statusboard">
+    <table class="Statusboard">
       <thead>
         <tr>
           <th></th>
@@ -43,25 +43,50 @@
       <tbody>
         <tr>
           <th>能力値</th>
-          <td><input class="statusNum" type="text" id="str" value="1"></td>
-          <td><input class="statusNum" type="text" id="con" value="1"></td>
-          <td><input class="statusNum" type="text" id="pow" value="1"></td>
-          <td><input class="statusNum" type="text" id="dex" value="1"></td>
-          <td><input class="statusNum" type="text" id="app" value="1"></td>
-          <td><input class="statusNum" type="text" id="siz" value="1"></td>
-          <td><input class="statusNum" type="text" id="interi" value="1"></td>
-          <td><input class="statusNum" type="text" id="edu" value="1"></td>
+          <td><input class="StatusNum" type="text" id="str" value="0"></td>
+          <td><input class="StatusNum" type="text" id="con" value="0"></td>
+          <td><input class="StatusNum" type="text" id="pow" value="0"></td>
+          <td><input class="StatusNum" type="text" id="dex" value="0"></td>
+          <td><input class="StatusNum" type="text" id="app" value="0"></td>
+          <td><input class="StatusNum" type="text" id="siz" value="0"></td>
+          <td><input class="StatusNum" type="text" id="int" value="0"></td>
+          <td><input class="StatusNum" type="text" id="edu" value="0"></td>
+        </tr>
+      </tbody>
+      <thead>
+        <tr>
+          <th></th>
+          <th>HP</th>
+          <th>MP</th>
+          <th>SAN</th>
+          <th>アイデア</th>
+          <th>幸運</th>
+          <th>知識</th>
+          <th>db</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th></th>
+          <td><input class="SubStatusNum" type="text" id="hp" readonly="readonly" value="0"></td>
+          <td><input class="SubStatusNum" type="text" id="mp" readonly="readonly" value="0"></td>
+          <td><input class="SubStatusNum" type="text" id="san" readonly="readonly" value="0"></td>
+          <td><input class="SubStatusNum" type="text" id="idea" readonly="readonly" value="0"></td>
+          <td><input class="SubStatusNum" type="text" id="luck" readonly="readonly" value="0"></td>
+          <td><input class="SubStatusNum" type="text" id="know" readonly="readonly" value="0"></td>
+          <td><input class="SubStatusNum" type="text" id="db" readonly="readonly" value="0"></td>
         </tr>
       </tbody>
     </table>
     <br>
     <input type="button" name="dice" value="dice" onclick="roll()">
+    <input type="button" name="dice" value="check" onclick="subStatusUpdate()">
     <br>
     <input type="button" name="dice" value="add" onclick="addSkillTable()">
     <table id="skillTable">
       <tr>
-        <td><input class="skillText" type="text" value="技能"></td>
-        <td><input class="skillNum" type="text" value="50"></td>
+        <td><input class="SkillText" type="text" value="技能"></td>
+        <td><input class="SkillNum" type="text" value="50"></td>
       </tr>
     </table>
 

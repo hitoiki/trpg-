@@ -1,15 +1,16 @@
 //意味もなく1行空ける
 window.onload = function () {
-    inputNumChecker("statusNum");
-    inputNumChecker("skillNum");
+    inputNumChecker("StatusNum");
+    inputNumChecker("SkillNum");
 }
 function inputNumChecker(className) {
-    //statusNumを数値専用に変える
+    //指定したクラスのtextboxを数値専用に変える
     var forms = document.getElementsByClassName(className);
-    var x = document.getElementById("memo");
-    for (var $i = 0; $i < forms.length; $i++) {
-        forms[$i].pattern = "\d*"
-        forms[$i].oninput = function () { this.value = this.value.replace(/[^0-9]+/i, ''); };
+    for (var i = 0; i < forms.length; i++) {
+        forms[i].pattern = "\d*"
+        if (typeof forms[i].value === "string") {
+            forms[i].oninput = function () { this.value = this.value.replace(/[^0-9]+/i, ''); };
+        }
     }
 }
 
@@ -20,9 +21,43 @@ function randomInt(min, max) {
 }
 
 function roll() {
-    var $target = document.getElementsByClassName("statusNum");
-    for (var $i = 0; $i < $target.length; $i++) {
-        $target[$i].value = String(randomInt(1, 6) + randomInt(1, 6) + randomInt(1, 6));
+    var target = document.getElementsByClassName("StatusNum");
+    for (var i = 0; i < target.length; i++) {
+        target[i].value = String(randomInt(1, 6) + randomInt(1, 6) + randomInt(1, 6));
+    }
+    subStatusUpdate();
+}
+
+function subStatusUpdate() {
+    var target = document.getElementsByClassName("SubStatusNum");
+    for (var i = 0; i < target.length; i++) {
+        switch (target[i].id) {
+            case "hp":
+                target[i].value = String(Math.ceil((+document.getElementById("str").value + +document.getElementById("con").value) / 2));
+                break;
+            case "mp":
+                target[i].value = document.getElementById("pow").value;
+                break;
+            case "san":
+                target[i].value = String(document.getElementById("pow").value * 5);
+                break;
+            case "idea":
+                target[i].value = String(document.getElementById("int").value * 5);
+                break;
+            case "luck":
+                target[i].value = String(document.getElementById("pow").value * 5);
+                break;
+            case "know":
+                target[i].value = String(document.getElementById("edu").value * 5);
+                break;
+            case "db":
+                val = 1
+                strPlusSiz = String(+document.getElementById("str").value + +document.getElementById("siz").value);
+                target[i].value = strPlusSiz <= 12 ? "-1d6" : strPlusSiz <= 16 ? "-1d4" : strPlusSiz <= 24 ? "naiyo" : strPlusSiz <= 32 ? "+1d4" : strPlusSiz <= 40 ? "+1d6" : strPlusSiz <= 56 ? "+2d6" : strPlusSiz <= 72 ? "+3d6" : "overflow";
+                break;
+            default: break;
+        }
+
     }
 }
 
@@ -32,13 +67,13 @@ function addSkillTable() {
     var row = table.insertRow(table.rows.length);
     var c1 = row.insertCell(0);
     var c2 = row.insertCell(1);
-    c1.innerHTML = '<input class="skillText" type="text" value="技能">';
-    c2.innerHTML = '<input class="skillNum" type="text" pattern="\d*" value="50">';
+    c1.innerHTML = '<input class="SkillText" type="text" value="技能">';
+    c2.innerHTML = '<input class="SkillNum" type="text" pattern="\d*" value="50">';
     c2.children[0].oninput = function () { this.value = this.value.replace(/[^0-9]+/i, ''); };
 }
 
 function SkillTableArray() {
-    var table = document.getElementById("skillTable");
+    var table = document.getElementById("SkillTable");
     if (!table) return;
     for (var i = 0; i < table.rows.length; i++) {
         rows[i]

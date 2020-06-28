@@ -12,7 +12,7 @@ table {
     border: 1px solid #CCC;
 }
 
-.statusNum[type="text"]
+.StatusNum[type="text"],.SubStatusNum[type="text"]
 {
     padding: 0.8em;
     outline: none;
@@ -45,11 +45,11 @@ table {
     height: 30px;
 }
 
-.skillText[type=text]{
+.SkillText[type=text]{
     border: 1px solid #CCC;
     width: 150px;
 }
-.skillNum[type=text]{
+.SkillNum[type=text]{
     border: 1px solid #CCC;
     width: 70px;
 }
