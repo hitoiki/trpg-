@@ -10,9 +10,10 @@ input[type=text],textarea {
 
 table {
     border: 1px solid #CCC;
+    width:auto !important
 }
 
-.StatusNum[type="text"],.SubStatusNum[type="text"]
+.StatusNum[type="text"]
 {
     padding: 0.8em;
     outline: none;
@@ -24,11 +25,24 @@ table {
     width: 50px;
 }
 
+.SubStatusNum[type="text"]
+{
+    padding: 0.8em;
+    outline: none;
+    border: 1px solid #DDD;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    font-size: 16px;
+    width: 50px;
+    background-color: #CCC;
+}
+
 #memo{
     border: 1px solid #777777;
     overflow: hidden; 
     overflow-wrap: break-word; 
-    resize: horizontal; 
+    resize: none; 
     width: 300px; 
     height: 100px;
 }

@@ -20,10 +20,23 @@ function randomInt(min, max) {
     return Math.floor(Math.random() * (max - min)) + min; //The maximum is exclusive and the minimum is inclusive
 }
 
-function roll() {
+function statusroll() {
     var target = document.getElementsByClassName("StatusNum");
     for (var i = 0; i < target.length; i++) {
-        target[i].value = String(randomInt(1, 6) + randomInt(1, 6) + randomInt(1, 6));
+        switch (target[i].id) {
+            case "edu":
+                target[i].value = String(randomInt(1, 6) + randomInt(1, 6) + randomInt(1, 6) + 3);
+                break;
+            case "int":
+                target[i].value = String(randomInt(1, 6) + randomInt(1, 6) + 6);
+                break;
+            case "siz":
+                target[i].value = String(randomInt(1, 6) + randomInt(1, 6) + 6);
+                break;
+            default:
+                target[i].value = String(randomInt(1, 6) + randomInt(1, 6) + randomInt(1, 6));
+                break;
+        }
     }
     subStatusUpdate();
 }
@@ -67,10 +80,16 @@ function addSkillTable() {
     var row = table.insertRow(table.rows.length);
     var c1 = row.insertCell(0);
     var c2 = row.insertCell(1);
+    var c3 = row.insertCell(2);
     c1.innerHTML = '<input class="SkillText" type="text" value="技能">';
     c2.innerHTML = '<input class="SkillNum" type="text" pattern="\d*" value="50">';
+    c3.innerHTML = '<input class="SkillRemove" type="button" value="x">'
     c2.children[0].oninput = function () { this.value = this.value.replace(/[^0-9]+/i, ''); };
+    c3.children[0].onclick = function () { table.deleteRow(row.rowIndex) };
 }
+
+
+
 
 function SkillTableArray() {
     var table = document.getElementById("SkillTable");
