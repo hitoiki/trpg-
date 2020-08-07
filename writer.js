@@ -82,7 +82,7 @@ function addSkillTable() {
     var c2 = row.insertCell(1);
     var c3 = row.insertCell(2);
     c1.innerHTML = '<input class="SkillText" type="text" value="技能">';
-    c2.innerHTML = '<input class="SkillNum" type="text" pattern="\d*" value="50">';
+    c2.innerHTML = '<input class="SkillNum" type="text" pattern="\d*" value="0">';
     c3.innerHTML = '<input class="SkillRemove" type="button" value="x">'
     c2.children[0].oninput = function () { this.value = this.value.replace(/[^0-9]+/i, ''); };
     c3.children[0].onclick = function () { table.deleteRow(row.rowIndex) };
@@ -103,4 +103,39 @@ function SkillTableArray() {
 
 function UniverCityOfOsaka() {
     return "UniverCityOfOsaka!!!!!";
+}
+
+
+function Encode() {
+    var data = "";
+    data += document.getElementById("name").value + ' ';
+
+    data += "Str" + " " + document.getElementById("str").value + " ";
+    data += "Con" + " " + document.getElementById("con").value + " ";
+    data += "Pow" + " " + document.getElementById("pow").value + " ";
+    data += "Dex" + " " + document.getElementById("dex").value + " ";
+    data += "App" + " " + document.getElementById("app").value + " ";
+    data += "Siz" + " " + document.getElementById("siz").value + " ";
+    data += "Int" + " " + document.getElementById("int").value + " ";
+    data += "Edu" + " " + document.getElementById("edu").value + " ";
+    data += "San" + " " + document.getElementById("san").value + " ";
+    data += "HP" + " " + document.getElementById("hp").value + " ";
+    data += "MP" + " " + document.getElementById("mp").value + " ";
+    data += "MaxHP" + " " + document.getElementById("hp").value + " ";
+    data += "MaxMP" + " " + document.getElementById("mp").value + " ";
+
+    data += "アイデア" + " " + document.getElementById("idea").value + " ";
+    data += "幸運" + " " + document.getElementById("luck").value + " ";
+    data += "知識" + " " + document.getElementById("know").value + " ";
+
+    var table = document.getElementById("skillTable");
+    if (!table) return data;
+    for (var i = 0; i < table.rows.length; i++) {
+        data += String(table.rows[i].getElementsByClassName("SkillText")[0].value) + ' ' + String(table.rows[i].getElementsByClassName("SkillNum")[0].value) + ' '
+    }
+    return data;
+}
+
+function Encoding() {
+    document.getElementById("encodeText").value = Encode();
 }
