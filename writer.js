@@ -108,6 +108,7 @@ function UniverCityOfOsaka() {
 
 function Encode() {
     var data = "";
+    data += "$decode "
     data += document.getElementById("name").value + ' ';
 
     data += "Str" + " " + document.getElementById("str").value + " ";
