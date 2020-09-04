@@ -107,6 +107,16 @@ function SkillTableArray() {
 
 }
 
+function SkillSumCheck() {
+    var sums = 0;
+    var table = document.getElementById("skillTable");
+    if (!table) document.getElementById("skillSum").value = 0;
+    for (var i = 0; i < table.rows.length; i++) {
+        sums += Number(table.rows[i].getElementsByClassName("SkillNum")[0].value);
+    }
+    document.getElementById("skillSum").value = sums;
+}
+
 
 function UniverCityOfOsaka() {
     return "UniverCityOfOsaka!!!!!";

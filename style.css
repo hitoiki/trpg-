@@ -38,6 +38,18 @@ table {
     width: 50px;
     background-color: #CCC;
 }
+.SkillSumkei[type="text"]
+{
+    padding: 0.8em;
+    outline: none;
+    border: 1px solid #DDD;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    font-size: 16px;
+    width: 50px;
+    background-color: #EEE;
+}
 
 #memo{
     border: 1px solid #777777;
