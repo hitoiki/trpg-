@@ -68,6 +68,12 @@ function subStatusUpdate() {
                 strPlusSiz = String(+document.getElementById("str").value + +document.getElementById("siz").value);
                 target[i].value = strPlusSiz <= 12 ? "-1d6" : strPlusSiz <= 16 ? "-1d4" : strPlusSiz <= 24 ? "naiyo" : strPlusSiz <= 32 ? "+1d4" : strPlusSiz <= 40 ? "+1d6" : strPlusSiz <= 56 ? "+2d6" : strPlusSiz <= 72 ? "+3d6" : "overflow";
                 break;
+            case "edupoint":
+                target[i].value = String(document.getElementById("edu").value * 10);
+                break;
+            case "intpoint":
+                target[i].value = String(document.getElementById("int").value * 10);
+                break;
             default: break;
         }
 
@@ -83,7 +89,8 @@ function addSkillTable() {
     var c3 = row.insertCell(2);
     c1.innerHTML = '<input class="SkillText" type="text" value="技能">';
     c2.innerHTML = '<input class="SkillNum" type="text" pattern="\d*" value="0">';
-    c3.innerHTML = '<input class="SkillRemove" type="button" value="x">'
+    c3.innerHTML = '<input class="SkillRemove" type="button" value="x">';
+    c1.children[0].oninput = function () { this.value = this.value.replace(" ", ''); };
     c2.children[0].oninput = function () { this.value = this.value.replace(/[^0-9]+/i, ''); };
     c3.children[0].onclick = function () { table.deleteRow(row.rowIndex) };
 }
