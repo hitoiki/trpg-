@@ -69,7 +69,7 @@ function subStatusUpdate() {
                 target[i].value = strPlusSiz <= 12 ? "-1d6" : strPlusSiz <= 16 ? "-1d4" : strPlusSiz <= 24 ? "naiyo" : strPlusSiz <= 32 ? "+1d4" : strPlusSiz <= 40 ? "+1d6" : strPlusSiz <= 56 ? "+2d6" : strPlusSiz <= 72 ? "+3d6" : "overflow";
                 break;
             case "edupoint":
-                target[i].value = String(document.getElementById("edu").value * 10);
+                target[i].value = String(document.getElementById("edu").value * 20);
                 break;
             case "intpoint":
                 target[i].value = String(document.getElementById("int").value * 10);
