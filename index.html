@@ -16,7 +16,7 @@
     kamingu suun...
     <br>
     <h1>suteetasu</h1>
-    <textarea id="encodeText">ここにエンコードを入れたい</textarea>
+    <textarea id="encodeText">ここにエンコードする文章が表示されます</textarea>
     <br>
     <input type="button" name="encoder" value="Encode!" onclick="Encoding()">
     <br>
@@ -85,14 +85,13 @@
       <table>
         <tr>
           <th>職業ポイント</th>
-          <th>興味ポイント</th>
-          <th>技能値合計</th>
+          <td><input class="SubStatusNum" type="text" id="edupointnow" readonly="readonly" value="0"></td>
+          <td><input class="SubStatusNum" type="text" id="edupoint" readonly="readonly" value="0"></td>
         </tr>
         <tr>
-          <td><input class="SubStatusNum" type="text" id="edupoint" readonly="readonly" value="0"></td>
+          <th>興味ポイント</th>
+          <td><input class="SubStatusNum" type="text" id="intpointnow" readonly="readonly" value="0"></td>
           <td><input class="SubStatusNum" type="text" id="intpoint" readonly="readonly" value="0"></td>
-          <td><input class="SkillSumkei" type="text" id="skillSum" readonly="readonly" value="0"></td>
-          <td><input type="button" name="skillSumChecker" value="更新！" onclick="SkillSumCheck()"></td>
         </tr>
       </table>
     </div>
@@ -103,9 +102,21 @@
     <!--<input type="button" name="dice" value="add" onclick="addSkillTable()">-->
     <table id="skillTable">
       <tr>
-        <td><input class="SkillText" type="text" value="技能"></td>
-        <td><input class="SkillNum" type="text" value="50"></td>
+        <th>技能</th>
+        <th>初期値</th>
+        <th>職業ポイント</th>
+        <th>教養ポイント</th>
+        <th>自由枠</th>
+        <th>結果</th>
       </tr>
+      <!--<tr>
+        <td><input class="SkillText" type="text" value="技能"></td>
+        <td><input class="SkillSubNum SkillNumDefault" type="text" pattern="\d*" value="0"></td>
+        <td><input class="SkillSubNum SkillNumEdu" type="text" pattern="\d*" value="0"></td>
+        <td><input class="SkillSubNum SkillNumInt" type="text" pattern="\d*" value="0"></td>
+        <td><input class="SkillSubNum SkillNumFree" type="text" pattern="\d*" value="0"></td>
+        <td><input class="SkillNum" type="text" readonly="readonly" value="0"></td>
+      </tr>-->
     </table>
     <input type="button" name="dice" value="add" onclick="addSkillTable()">
   </main>

@@ -2,6 +2,7 @@
 window.onload = function () {
     inputNumChecker("StatusNum");
     inputNumChecker("SkillNum");
+    addSkillTable();
 }
 function inputNumChecker(className) {
     //指定したクラスのtextboxを数値専用に変える
@@ -76,6 +77,17 @@ function subStatusUpdate() {
                 break;
             default: break;
         }
+        //今の技能ポイントに応じて色を変える
+        if (document.getElementById("edupointnow").value <= document.getElementById("edupoint").value) {
+            document.getElementById("edupointnow").style.backgroundColor = "#7bd7f9";
+        } else {
+            document.getElementById("edupointnow").style.backgroundColor = "#fa7a7a";
+        }
+        if (document.getElementById("intpointnow").value <= document.getElementById("intpoint").value) {
+            document.getElementById("intpointnow").style.backgroundColor = "#7bd7f9";
+        } else {
+            document.getElementById("intpointnow").style.backgroundColor = "#fa7a7a";
+        }
 
     }
 }
@@ -85,17 +97,48 @@ function addSkillTable() {
     if (!table) return;
     var row = table.insertRow(table.rows.length);
     var c1 = row.insertCell(0);
-    var c2 = row.insertCell(1);
-    var c3 = row.insertCell(2);
+    var c2default = row.insertCell(1);
+    var c2edu = row.insertCell(2);
+    var c2int = row.insertCell(3);
+    var c2free = row.insertCell(4);
+    var c2result = row.insertCell(5);
+    var c3 = row.insertCell(6);
     c1.innerHTML = '<input class="SkillText" type="text" value="技能">';
-    c2.innerHTML = '<input class="SkillNum" type="text" pattern="\d*" value="0">';
+    c2default.innerHTML = '<input class="SkillSubNum SkillNumDefault" type="text" pattern="\d*" value="0">';
+    c2edu.innerHTML = '<input class="SkillSubNum SkillNumEdu" type="text" pattern="\d*" value="0">';
+    c2int.innerHTML = '<input class="SkillSubNum SkillNumInt" type="text" pattern="\d*" value="0">';
+    c2free.innerHTML = '<input class="SkillSubNum SkillNumFree" type="text" pattern="\d*" value="0">';
+    c2result.innerHTML = '<input class="SkillNum" type="text" readonly="readonly" value="0">';
     c3.innerHTML = '<input class="SkillRemove" type="button" value="x">';
     c1.children[0].oninput = function () { this.value = this.value.replace(" ", ''); };
-    c2.children[0].oninput = function () { this.value = this.value.replace(/[^0-9]+/i, ''); };
+    c2default.children[0].oninput = function () { this.value = this.value.replace(/[^0-9]+/i, ''); TextUpdate(row.rowIndex); };
+    c2edu.children[0].oninput = function () { this.value = this.value.replace(/[^0-9]+/i, ''); TextUpdate(row.rowIndex); };
+    c2int.children[0].oninput = function () { this.value = this.value.replace(/[^0-9]+/i, ''); TextUpdate(row.rowIndex); };
+    c2free.children[0].oninput = function () { this.value = this.value.replace(/[^0-9]+/i, ''); TextUpdate(row.rowIndex); };
     c3.children[0].onclick = function () { table.deleteRow(row.rowIndex) };
 }
 
-
+function TextUpdate(rowNumber) {
+    var table = document.getElementById("skillTable");
+    var sum = 0;
+    if (table.rows[rowNumber].getElementsByClassName("SkillNumDefault").length != 0) {
+        sum += Number(table.rows[rowNumber].getElementsByClassName("SkillNumDefault")[0].value);
+    }
+    if (table.rows[rowNumber].getElementsByClassName("SkillNumEdu").length != 0) {
+        sum += Number(table.rows[rowNumber].getElementsByClassName("SkillNumEdu")[0].value);
+    }
+    if (table.rows[rowNumber].getElementsByClassName("SkillNumInt").length != 0) {
+        sum += Number(table.rows[rowNumber].getElementsByClassName("SkillNumInt")[0].value);
+    }
+    if (table.rows[rowNumber].getElementsByClassName("SkillNumFree").length != 0) {
+        sum += Number(table.rows[rowNumber].getElementsByClassName("SkillNumFree")[0].value);
+    }
+    if (table.rows[rowNumber].getElementsByClassName("SkillNum").length != 0) {
+        table.rows[rowNumber].getElementsByClassName("SkillNum")[0].value = String(sum);
+    }
+    SkillEduSumCheck();
+    SkillIntSumCheck();
+}
 
 
 function SkillTableArray() {
@@ -107,14 +150,37 @@ function SkillTableArray() {
 
 }
 
-function SkillSumCheck() {
-    var sums = 0;
+function SkillEduSumCheck() {
+    var sum = 0;
     var table = document.getElementById("skillTable");
     if (!table) document.getElementById("skillSum").value = 0;
     for (var i = 0; i < table.rows.length; i++) {
-        sums += Number(table.rows[i].getElementsByClassName("SkillNum")[0].value);
+        if (table.rows[i].getElementsByClassName("SkillNumEdu").length != 0) {
+            sum += Number(table.rows[i].getElementsByClassName("SkillNumEdu")[0].value);
+        }
     }
-    document.getElementById("skillSum").value = sums;
+    if (sum <= document.getElementById("edupoint").value) {
+        document.getElementById("edupointnow").style.backgroundColor = "#7bd7f9";
+    } else {
+        document.getElementById("edupointnow").style.backgroundColor = "#fa7a7a";
+    }
+    document.getElementById("edupointnow").value = sum;
+}
+function SkillIntSumCheck() {
+    var sum = 0;
+    var table = document.getElementById("skillTable");
+    if (!table) document.getElementById("skillSum").value = 0;
+    for (var i = 0; i < table.rows.length; i++) {
+        if (table.rows[i].getElementsByClassName("SkillNumInt").length != 0) {
+            sum += Number(table.rows[i].getElementsByClassName("SkillNumInt")[0].value);
+        }
+    }
+    if (sum <= document.getElementById("edupoint").value) {
+        document.getElementById("intpointnow").style.backgroundColor = "#7bd7f9";
+    } else {
+        document.getElementById("intpointnow").style.backgroundColor = "#fa7a7a";
+    }
+    document.getElementById("intpointnow").value = sum;
 }
 
 
@@ -149,7 +215,9 @@ function Encode() {
     var table = document.getElementById("skillTable");
     if (!table) return data;
     for (var i = 0; i < table.rows.length; i++) {
-        data += String(table.rows[i].getElementsByClassName("SkillText")[0].value) + ' ' + String(table.rows[i].getElementsByClassName("SkillNum")[0].value) + ' '
+        if ((table.rows[i].getElementsByClassName("SkillNum").length != 0) && (table.rows[i].getElementsByClassName("SkillText").length != 0)) {
+            data += String(table.rows[i].getElementsByClassName("SkillText")[0].value) + ' ' + String(table.rows[i].getElementsByClassName("SkillNum")[0].value) + ' '
+        }
     }
     return data;
 }

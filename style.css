@@ -83,10 +83,11 @@ table {
     border: 1px solid #CCC;
     width: 150px;
 }
-.SkillNum[type=text]{
+.SkillNum[type="text"],.SkillSubNum[type="text"]{
     border: 1px solid #CCC;
     width: 70px;
 }
+
 .sticky {
     float: right;
     display: flex;
