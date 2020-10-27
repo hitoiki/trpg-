@@ -47,7 +47,7 @@ function subStatusUpdate() {
     for (var i = 0; i < target.length; i++) {
         switch (target[i].id) {
             case "hp":
-                target[i].value = String(Math.ceil((+document.getElementById("str").value + +document.getElementById("con").value) / 2));
+                target[i].value = String(Math.ceil((+document.getElementById("con").value + +document.getElementById("siz").value) / 2));
                 break;
             case "mp":
                 target[i].value = document.getElementById("pow").value;
